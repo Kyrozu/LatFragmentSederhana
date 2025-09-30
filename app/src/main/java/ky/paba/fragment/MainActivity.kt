@@ -22,21 +22,25 @@ class MainActivity : AppCompatActivity() {
         var _btnFragmentSatu = findViewById<Button>(R.id.btnFragmentSatu)
         var _btnFragmentDua = findViewById<Button>(R.id.btnFragmentDua)
 
+        _btnFragmentSatu.setOnClickListener {
+            replaceFragement(fSatu())
+        }
+
         _btnFragmentDua.setOnClickListener {
             replaceFragement(fDua())
         }
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             replaceFragement(fSatu())
         }
 
     }
 
-    private fun replaceFragement(fragment: Fragment){
+    private fun replaceFragement(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
 
-        fragmentTransaction.replace(R.id.fragment_container,fragment)
+        fragmentTransaction.replace(R.id.fragment_container, fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
     }

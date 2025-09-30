@@ -46,6 +46,17 @@ class fDua : Fragment() {
 
         if(namaDiterima!="")
             _tvHasil.text = "Halo, $namaDiterima! Alamat Anda $alamatDiterima tahun."
+
+        val _btnOpenFDua = view.findViewById<Button>(R.id.btnOpenFDua)
+
+        _btnOpenFDua.setOnClickListener {
+            val fragmentManager = parentFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+
+            fragmentTransaction.replace(R.id.fragment_container, fSatu())
+            fragmentTransaction.commit()
+        }
+
     }
 
     override fun onCreateView(
